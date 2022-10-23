@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+    slotify_web:
+        container_name: slotify_apache
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        restart: always
+        volumes:
+            - ./code/:/var/www/html/
+            - ./apache_log:/var/log/apache2
+networks:
+  default:
+    name: ierg4210_default
+    external: true
